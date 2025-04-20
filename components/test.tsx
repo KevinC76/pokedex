@@ -21,10 +21,6 @@ function Library({ books }: LibraryType) {
           curr.name.toLowerCase().includes(search.toLowerCase())
         );
 
-  console.log(books);
-  console.log(search);
-  console.log('ini filter', filteredBooks);
-
   return (
     <div className="flex flex-col gap-4">
       <input

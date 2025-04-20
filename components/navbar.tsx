@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { IoMenu } from 'react-icons/io5';
 
 function Navbar() {
   return (
-    <div className="flex justify-between items-center bg-[#ff3f41] px-64 ">
+    <div className="flex justify-between items-center bg-[#ff3f41] px-8 sm:px-32 xl:px-64 ">
       {/* logo */}
       <Link href="/">
         <div>
@@ -17,7 +18,8 @@ function Navbar() {
         </div>
       </Link>
       {/* content */}
-      <div className="flex gap-4">
+
+      <div className="hidden sm:flex gap-4 ">
         <Link
           href="/"
           className="text-xl text-white font-medium hover:underline"
@@ -30,6 +32,10 @@ function Navbar() {
         >
           About
         </Link>
+      </div>
+
+      <div className="block sm:hidden">
+        <IoMenu color='#ffffff' size={32}/>
       </div>
     </div>
   );

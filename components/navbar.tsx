@@ -1,11 +1,20 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { IoMenu } from 'react-icons/io5';
+import MobileMenu from './reusableComponents/mobile-menu';
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
   return (
-    <div className="flex justify-between items-center bg-[#ff3f41] px-8 sm:px-32 xl:px-64 ">
+    <div className="flex justify-between items-center bg-red-pokemonball px-8 sm:px-32 xl:px-64 ">
       {/* logo */}
       <Link href="/">
         <div>
@@ -34,9 +43,11 @@ function Navbar() {
         </Link>
       </div>
 
-      <div className="block sm:hidden">
-        <IoMenu color='#ffffff' size={32}/>
+      <div className="block sm:hidden" onClick={handleOpen}>
+        <IoMenu color="#ffffff" size={32} />
       </div>
+
+      <MobileMenu open={open} onClose={handleOpen} />
     </div>
   );
 }

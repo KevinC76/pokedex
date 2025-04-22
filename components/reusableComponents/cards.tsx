@@ -103,7 +103,44 @@ type PokemonType = {
 };
 
 function Cards({ url }: CardsProps) {
-  const [pokemon, setPokemon] = useState<PokemonType | null>(null);
+  const defaultPokemon: PokemonType = {
+    abilities: [],
+    base_experience: 0,
+    cries: {
+      latest: '',
+    },
+    forms: [],
+    game_indices: [],
+    height: 0,
+    held_items: [],
+    id: 0,
+    is_default: false,
+    location_area_encounters: '',
+    moves: [],
+    name: '',
+    order: 0,
+    past_abilities: [],
+    past_types: [],
+    species: {
+      name: '',
+      url: '',
+    },
+    sprites: {
+      back_default: '',
+      other: {
+        'official-artwork': {
+          front_default: '',
+        },
+      },
+    },
+    stats: [],
+    types: [],
+    weight: 0,
+  };
+
+  // Use it like this
+  const [pokemon, setPokemon] = useState<PokemonType>(defaultPokemon);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -113,16 +150,24 @@ function Cards({ url }: CardsProps) {
         setPokemon(data);
       } catch (error) {
         console.error('Error fetching Pokémon data:', error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchPokemon();
   }, [url]);
 
-  if (!pokemon) {
-    return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <div className="w-full p-8 bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-xl shadow-sm flex items-center justify-center">
+        <p className="text-gray-500 text-lg font-semibold animate-pulse">
+          Loading...
+        </p>
+      </div>
+    );
   }
 
-  console.log('ini dari cards.tsx', pokemon);
+  if (!pokemon) return null;
 
   const height = (pokemon.height / 10).toFixed(2);
   const weight = (pokemon.weight / 10).toFixed(2);

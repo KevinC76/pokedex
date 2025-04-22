@@ -18,15 +18,18 @@ export default function HomePage() {
     fetch();
   }, []);
 
-  console.log('ini dari page.tsx', data);
-
   return (
     <div className="px-8 xl:px-64 py-8 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-16">
+        {data ? (
+          data.map((item) => <Cards key={item.name} url={item.url} />)
+        ) : (
+          <p>Loading...</p>
+        )}
+        {/* <Cards />
         <Cards />
         <Cards />
-        <Cards />
-        <Cards />
+        <Cards /> */}
       </div>
     </div>
   );

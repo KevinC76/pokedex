@@ -1,12 +1,13 @@
 import React from 'react';
 
+
 function AboutPage() {
   return (
     <div className="p-8 sm:px-32 py-8 xl:px-64 text-white">
       {/* header */}
       <div className="flex flex-col justify-center items-center gap-4">
         <h1 className="font-black text-4xl sm:text-6xl text-center">About Page</h1>
-        <p className="text-lg text-center">
+        <p className="text-lg text-center text-white/80">
           Discover, learn, and explore the world of Pokémon — one entry at a
           time.
         </p>
@@ -16,7 +17,7 @@ function AboutPage() {
         <h1 className="font-black text-3xl sm:text-6xl text-center">
           What This Site Is About
         </h1>
-        <p className="text-lg text-center">
+        <p className="text-lg text-center text-white/80">
           This website is a fan-made Pokédex where you can explore detailed
           information about every Pokémon — including their types, stats,
           evolutions, abilities, and more. Whether you&apos;re a veteran trainer
@@ -29,7 +30,7 @@ function AboutPage() {
         <h1 className="font-black text-3xl sm:text-6xl text-center">
           Why I Made This Site
         </h1>
-        <p className="text-lg text-center">
+        <p className="text-lg text-center text-white/80">
           As a Pokémon fan and web developer, I created this site as a fun way
           to combine my love for Pokémon with my passion for coding. The goal is
           to offer a clean, easy-to-use, and beautifully designed Pokédex that

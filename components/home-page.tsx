@@ -28,10 +28,12 @@ export default function HomePage() {
     <div className="px-8 xl:px-64 py-8 ">
       <Search search={search} setSearch={setSearch} />
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-16">
-        {filteredData ? (
+        {filteredData.length > 0 ? (
           filteredData.map((item) => <Cards key={item.name} url={item.url} />)
         ) : (
-          <p>Loading...</p>
+          <div className='flex items-center justify-center w-full h-full col-span-3'>
+            <h1 className='text-center text-white text-2xl font-bold'>Pokemon not found</h1>
+          </div>
         )}
       </div>
     </div>

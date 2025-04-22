@@ -21,8 +21,9 @@ export default function HomePage() {
   console.log('ini dari page.tsx', data);
 
   return (
-    <div className="px-64 py-8 ">
-      <div className="grid grid-cols-3 gap-16">
+    <div className="px-8 xl:px-64 py-8 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-16">
+        <Cards />
         <Cards />
         <Cards />
         <Cards />

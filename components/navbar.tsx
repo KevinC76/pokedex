@@ -14,7 +14,7 @@ function Navbar() {
   };
 
   return (
-    <div className="flex justify-between items-center bg-red-pokemonball px-8 sm:px-32 xl:px-64 ">
+    <div className="flex justify-between items-center bg-red-pokemonball px-8 xl:px-64 ">
       {/* logo */}
       <Link href="/">
         <div>

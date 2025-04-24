@@ -203,10 +203,12 @@ function Cards({ url }: CardsProps) {
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-1 bg-black-button text-white py-2 px-4 w-full rounded-md">
-          <PiLightning />
-          <a href="#">Details</a>
-        </div>
+        <a href={`/${pokemon.name}`} className='w-full'>
+          <div className="flex justify-center items-center gap-1 bg-black-button text-white py-2 px-4 w-full rounded-md">
+            <PiLightning />
+            <p>Details</p>
+          </div>
+        </a>
       </div>
     </div>
   );

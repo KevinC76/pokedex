@@ -1,3 +1,12 @@
+type TypesProps = {
+  name: string;
+  url: string;
+};
+
+export type typeProps = {
+  type: TypesProps;
+};
+
 type NamedAPIResource = {
   name: string;
   url: string;

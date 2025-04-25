@@ -5,105 +5,14 @@ import Elements from './elements';
 import { PiLightning, PiBarbell } from 'react-icons/pi';
 import { CiRuler } from 'react-icons/ci';
 import Image from 'next/image';
+import { PokemonDetails, typeProps } from '@/type/pokemon-details';
 
 type CardsProps = {
   url: string;
 };
 
-type TypesProps = {
-  name: string;
-  url: string;
-};
-
-type typeProps = {
-  type: TypesProps;
-};
-
-type NamedAPIResource = {
-  name: string;
-  url: string;
-};
-
-type PokemonAbility = {
-  ability: NamedAPIResource;
-  is_hidden: boolean;
-  slot: number;
-};
-
-type PokemonMove = {
-  move: NamedAPIResource;
-};
-
-type PokemonStat = {
-  base_stat: number;
-  effort: number;
-  stat: NamedAPIResource;
-};
-
-type PokemonTypeElement = {
-  slot: number;
-  type: NamedAPIResource;
-};
-
-type PokemonForm = NamedAPIResource;
-
-type GameIndex = {
-  game_index: number;
-  version: NamedAPIResource;
-};
-
-type HeldItem = {
-  item: NamedAPIResource;
-  version_details: {
-    rarity: number;
-    version: NamedAPIResource;
-  }[];
-};
-
-type PastType = {
-  generation: NamedAPIResource;
-  types: PokemonTypeElement[];
-};
-
-type PastAbility = {
-  generation: NamedAPIResource;
-  ability: PokemonAbility;
-};
-
-type PokemonType = {
-  abilities: PokemonAbility[];
-  base_experience: number;
-  cries: {
-    latest: string;
-  };
-  forms: PokemonForm[];
-  game_indices: GameIndex[];
-  height: number;
-  held_items: HeldItem[];
-  id: number;
-  is_default: boolean;
-  location_area_encounters: string;
-  moves: PokemonMove[];
-  name: string;
-  order: number;
-  past_abilities: PastAbility[];
-  past_types: PastType[];
-  species: NamedAPIResource;
-  sprites: {
-    back_default: string;
-    other: {
-      'official-artwork': {
-        front_default: string;
-      };
-    };
-  };
-  stats: PokemonStat[];
-  types: PokemonTypeElement[];
-  weight: number;
-};
-
 function Cards({ url }: CardsProps) {
-  const defaultPokemon: PokemonType = {
+  const defaultPokemon: PokemonDetails = {
     abilities: [],
     base_experience: 0,
     cries: {
@@ -139,7 +48,7 @@ function Cards({ url }: CardsProps) {
   };
 
   // Use it like this
-  const [pokemon, setPokemon] = useState<PokemonType>(defaultPokemon);
+  const [pokemon, setPokemon] = useState<PokemonDetails>(defaultPokemon);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -203,7 +112,7 @@ function Cards({ url }: CardsProps) {
           </div>
         </div>
 
-        <a href={`/${pokemon.name}`} className='w-full'>
+        <a href={`/${pokemon.name}`} className="w-full">
           <div className="flex justify-center items-center gap-1 bg-black-button text-white py-2 px-4 w-full rounded-md">
             <PiLightning />
             <p>Details</p>

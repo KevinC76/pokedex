@@ -1,7 +1,12 @@
 export const getData = async () => {
-  const res = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=151').then(
-    (data) => data.json()
-  );
+  try {
+    const res = await fetch(
+      'https://pokeapi.co/api/v2/pokemon/?limit=151'
+    ).then((data) => data.json());
 
-  return res.results;
+    return res.results;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 };
